@@ -1,0 +1,38 @@
+.popup_form{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 10% auto;
+    background: #fff;
+    padding: 40px 20px;
+    border-top: 3px solid #8D59E1;
+}
+
+.modal_form{
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+.modal_form input,.modal_form  select, .modal_form textarea{
+    height: 40px;
+    border: 1px solid #EFEFEF;
+}
+.modal_form textarea{
+    margin-top: 16px;
+    height: 70px;
+
+}
+.error{
+  color: red;
+    font-size: 12px;
+}
+
+.modal_form button{
+    background-color: #2D57FB;
+    color: #fff;
+    border: none;
+    padding: 10px;
+}
