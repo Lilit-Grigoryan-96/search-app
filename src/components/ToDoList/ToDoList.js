@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import SearchForm from "../SearchForm/SearchForm"
 const ToDoList = (props) => {
-
+    const [serchVal, setSerchVal] = useState('');
     const [toggleItem,settoggleItem] = useState(null);
     const showNote = (id) => {
         if(toggleItem == id){
@@ -17,14 +17,14 @@ const ToDoList = (props) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <SearchForm todos={props.todos} setTodos={props.setTodos}/>
+                                <SearchForm todos={props.todos} setTodos={props.setTodos} serchVal={serchVal} setSerchVal={setSerchVal}/>
                                 {
                                     [...props.todos].map((todo, id) => {
                                         return (
-                                            <div onClick={()=> showNote(id)} key={id} className="text-left mb-3">
+                                            <div onClick={()=> showNote(id)} key={id} className={serchVal==='' || serchVal===todo.category ? 'd-block' : 'd-none'} >
                                                 <h3>{todo.title}</h3>
                                                 <span>{todo.date}</span>
-                                                <span>{todo.category}</span>
+                                                <span>({todo.category})</span>
                                             </div>
                                         )
                                     })
@@ -38,7 +38,7 @@ const ToDoList = (props) => {
 
                                                 <div className={toggleItem==id ? 'd-block' : 'd-none'} key={id}>
                                                     <h1>{todo.title}</h1>
-                                                    <p>{todo.date}</p>
+                                                    <p>{todo.category} | {todo.date} </p>
                                                     <p>{todo.desc}</p>
                                                 </div>
                                         )

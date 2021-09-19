@@ -42,7 +42,6 @@ const ModalForm = (props) => {
                         <textarea name="description" value={text} onChange={ev => {setText(ev.target.value)}}></textarea>
                         <p className={classes.error}>{errors}</p>
                         <button type="submit">save</button>
-                        {/*<button className="save" onClick={()=>saveOnlocalStorage()}>SAVE</button>*/}
 
                     </form>
                 </div>
