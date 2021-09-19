@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import SearchForm from "../SearchForm/SearchForm"
+import classes from "./ToDoList.module.css"
 const ToDoList = (props) => {
     const [serchVal, setSerchVal] = useState('');
     const [toggleItem,settoggleItem] = useState(null);
@@ -16,12 +17,12 @@ const ToDoList = (props) => {
                 <div className="col">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className={`col-md-6 ${classes.todo_items}`}>
                                 <SearchForm todos={props.todos} setTodos={props.setTodos} serchVal={serchVal} setSerchVal={setSerchVal}/>
                                 {
                                     [...props.todos].map((todo, id) => {
                                         return (
-                                            <div onClick={()=> showNote(id)} key={id} className={serchVal==='' || serchVal===todo.category ? 'd-block' : 'd-none'} >
+                                            <div onClick={()=> showNote(id)} key={id} className={serchVal==='' || serchVal===todo.category ? 'd-block text-left mb-3' : 'd-none'} >
                                                 <h3>{todo.title}</h3>
                                                 <span>{todo.date}</span>
                                                 <span>({todo.category})</span>
